@@ -1,0 +1,151 @@
+
+FileName : cachesimulator.java
+........................................
+........................................
+FLOW :
+public void init() :
+            -> EventQueue.invokeAndWait(new Runnable()
+                   -> public void run()
+		      it calls -> cachesimulator.this.initComponents() => this function uses other functions defined in the "cachesimulator" class.
+
+
+
+
+CACHESIMULATOR.JAVA FILE METHODS :
+public void initComponents()
+private void choice4ItemStateChanged(ItemEvent paramItemEvent)
+private void choice3ItemStateChanged(ItemEvent paramItemEvent)
+private void jButton2ActionPerformed(ActionEvent paramActionEvent)
+private void jButton3ActionPerformed(ActionEvent paramActionEvent)
+private void jButton4ActionPerformed(ActionEvent paramActionEvent)
+private void jButton1ActionPerformed(ActionEvent paramActionEvent)
+private void jRadioButton11ActionPerformed(ActionEvent paramActionEvent) {}
+private void jTextField1ActionPerformed(ActionEvent paramActionEvent) {}
+private void jRadioButton12ActionPerformed(ActionEvent paramActionEvent) {}
+...............................
+private void values_ini()
+public void paint(Graphics paramGraphics)
+private int no_bits(int paramInt)
+void Fill_table(String paramString)
+void Fill_TextArea1(String paramString)
+void Fill_TextArea2(String paramString) {}
+void Map_direct(String paramString)
+void Map_setassociate(String paramString)
+void Draw_map_Direct(Graphics paramGraphics)
+void Draw_map_Main(Graphics paramGraphics)
+int issetfree(int paramInt)
+private int LRU_Replaceable(int paramInt)
+private int FIFO_Replaceable(int paramInt)
+private int random_Replaceable(int paramInt)
+private int find_newcache(int paramInt)
+private void writeback_direct(String paramString)
+private void writeback_setassociate(String paramString)
+private void writethrough_direct(String paramString)
+private void writethrough_setassociate(String paramString)
+private void writethroughno_direct(String paramString)
+private void writethroughno_setassociate(String paramString)
+void cache_hit()
+void cache_miss()
+private String Any_to_binary(String paramString)
+
+FLOW :
+
+init()
+->run()
+  ->cachesimulator.this.initComponents();
+    ->public void itemStateChanged(ItemEvent paramAnonymousItemEvent)
+      ->cachesimulator.this.choice4ItemStateChanged(paramAnonymousItemEvent);
+    ->public void itemStateChanged(ItemEvent paramAnonymousItemEvent)
+      ->cachesimulator.this.choice3ItemStateChanged(paramAnonymousItemEvent);
+    ->public void actionPerformed(ActionEvent paramAnonymousActionEvent)
+      ->cachesimulator.this.jRadioButton11ActionPerformed(paramAnonymousActionEvent);
+    ->public void actionPerformed(ActionEvent paramAnonymousActionEvent)
+      ->cachesimulator.this.jButton2ActionPerformed(paramAnonymousActionEvent);
+        ->values_ini()
+          ->paint(localGraphics)
+              ->Draw_map_Direct(paramGraphics)
+              ->Draw_map_Main(paramGraphics)
+              ->Draw_map_setAssociate(paramGraphics)
+          ->repaint()
+    ->public void actionPerformed(ActionEvent paramAnonymousActionEvent)
+      ->cachesimulator.this.jTextField1ActionPerformed(paramAnonymousActionEvent);
+    ->public void actionPerformed(ActionEvent paramAnonymousActionEvent)
+      ->cachesimulator.this.jButton3ActionPerformed(paramAnonymousActionEvent);
+        (if condition)--->Map_direct(str)
+          ->Fill_table(str)
+          ->cache_miss() // cache_hit()
+          ->repaint()
+        (else condition)--->Map_setassociate
+          ->issetfree()
+          ->Fill_table(str)
+          ->cache_hit() // cache_miss()
+          ->repaint()
+        (if condition)-->writeback_direct(str)
+           ->cache_miss() // cache_hit()
+           ->repaint()
+        (else condition)-->writeback_setassociate(str)
+           ->issetfree()
+           ->cache_hit()  // cache_miss()
+           ->repaint()
+        (if condition)-->writethrough_direct(str)
+           ->cache_hit() // cache_miss()
+           ->repaint()
+        (else condition)-->writethrough_setassociate(str)
+           ->issetfree()
+           ->cache_miss() // cache_hit()
+           ->repaint()
+        (if condition)-->writethroughno_direct(str)
+           ->cache_hit()  // cache_miss()
+           ->repaint()
+        (else condition)-->writethroughno_setassociate(str)
+           ->issetfree()
+           ->cache_miss() // cache_hit()
+           ->repaint()
+    ->public void actionPerformed(ActionEvent paramAnonymousActionEvent)
+      ->cachesimulator.this.jRadioButton12ActionPerformed(paramAnonymousActionEvent);
+    ->public void actionPerformed(ActionEvent paramAnonymousActionEvent)
+      ->cachesimulator.this.jButton4ActionPerformed(paramAnonymousActionEvent);
+        ->Fill_table(str);
+          ->Map_direct(str) // Map_setassociate(str)
+             ->issetfree() -- [Only for Map_setassociate(str) ]
+             ->Fill_table(str)
+             ->cache_hit() // cache_miss()
+             ->repaint()
+    ->public void actionPerformed(ActionEvent paramAnonymousActionEvent)
+      ->cachesimulator.this.jButton1ActionPerformed(paramAnonymousActionEvent);
+        ->Fill_table(str)
+        (if condition)-->writeback_direct(str)
+           ->cache_miss() // cache_hit()
+           ->repaint()
+        (else condition)-->writeback_setassociate(str)
+           ->issetfree()
+           ->cache_hit()  // cache_miss()
+           ->repaint()
+        (if condition)-->writethrough_direct(str)
+           ->cache_hit() // cache_miss()
+           ->repaint()
+        (else condition)-->writethrough_setassociate(str)
+           ->issetfree()
+           ->cache_miss() // cache_hit()
+           ->repaint()
+        (if condition)-->writethroughno_direct(str)
+           ->cache_hit()  // cache_miss()
+           ->repaint()
+        (else condition)-->writethroughno_setassociate(str)
+           ->issetfree()
+           ->cache_miss() // cache_hit()
+           ->repaint()
+      
+       
+        
+
+
+
+..............................................................................................................
+..............................................................................................................
+
+cachesimulator$*.java :
+
+actionPerformed(..) function within it a call to cachesimulator.access$* 
+
+..............................................................................................................  
